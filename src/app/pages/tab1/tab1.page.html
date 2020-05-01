@@ -9,6 +9,7 @@
 <ion-content>
     <h3>Webcam Face Detection</h3>
   <div style="position: absolute;">
+    {{captures}}
     <video #video width="{{displaySize.width}}" height="{{displaySize.height}}"></video>
     <canvas id="canvas"width="{{displaySize.width}}" height="{{displaySize.height}}" #canvas></canvas>
   </div>
