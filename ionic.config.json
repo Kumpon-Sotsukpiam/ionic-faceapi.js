@@ -1,0 +1,7 @@
+{
+  "name": "face_detection",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
