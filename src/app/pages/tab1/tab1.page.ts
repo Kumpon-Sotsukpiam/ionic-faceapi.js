@@ -41,8 +41,8 @@ export class Tab1Page implements OnInit {
       if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then((stream) => {
           this.video.nativeElement.srcObject = (stream) // set stream video
-          this.video.nativeElement.play()// playing video
-          setTimeout(() => this.onFaceAPI(), 1000) // start faceAPI function delay 1 sec.
+          this.video.nativeElement.onloadedmetadata = (e) => this.video.nativeElement.play()
+          this.video.nativeElement.onplaying = (e) => this.onFaceAPI()
         })
       }
     }).catch(err => {
