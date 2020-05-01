@@ -45,9 +45,7 @@ export class Tab1Page implements OnInit {
           this.video.nativeElement.onplaying = (e) => this.onFaceAPI()
         })
       }
-    }).catch(err => {
-      alert(err)
-    })
+    }).catch(err => console.error(err))
   }
   onFaceAPI() {
     faceapi.matchDimensions(this.canvas.nativeElement, this.displaySize)
@@ -59,7 +57,6 @@ export class Tab1Page implements OnInit {
       if (detections) {
         const resizeDetections = faceapi.resizeResults(detections, this.displaySize)
         const { age, gender, genderProbability } = resizeDetections
-        this.captures.push(age)
         this.canvas.nativeElement.getContext("2d").clearRect(0, 0, this.displaySize.width, this.displaySize.height)
         faceapi.draw.drawDetections(this.canvas.nativeElement, resizeDetections)
         faceapi.draw.drawFaceLandmarks(this.canvas.nativeElement, resizeDetections)
